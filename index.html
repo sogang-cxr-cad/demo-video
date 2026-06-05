@@ -55,6 +55,7 @@
         header {
             text-align: center;
             animation: fadeInDown 0.8s ease-out;
+            order: 1;
         }
 
         h1 {
@@ -81,13 +82,17 @@
             width: 100%;
             margin-bottom: 8px;
             position: relative;
+            order: 2;
         }
 
         @media (max-width: 1024px) {
             .flow-container {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 12px;
+                order: 3;
+                /* Move steps below video */
             }
+
             .flow-step::after {
                 display: none !important;
             }
@@ -95,8 +100,8 @@
 
         @media (max-width: 640px) {
             .flow-container {
-                grid-template-columns: 1fr;
-                gap: 12px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
             }
         }
 
@@ -167,7 +172,6 @@
             word-break: keep-all;
         }
 
-        /* Video container styling */
         .video-container {
             width: 100%;
             background: var(--container-bg);
@@ -181,6 +185,14 @@
             position: relative;
             overflow: hidden;
             animation: fadeInUp 1s ease-out;
+            order: 3;
+        }
+
+        @media (max-width: 1024px) {
+            .video-container {
+                order: 2;
+                /* Move video above steps */
+            }
         }
 
         .video-container::before {
